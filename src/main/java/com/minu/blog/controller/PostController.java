@@ -1,32 +1,49 @@
 package com.minu.blog.controller;
 
 import com.minu.blog.entity.Post;
+import com.minu.blog.repository.PostRepository;
 import com.minu.blog.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping( "/board" )
+@RequiredArgsConstructor
+@RequestMapping( "/api/post" )
 public class PostController{
 
-    @Autowired
-    PostService postService;
+    private final PostService postService;
+
+    private final PostRepository postRepository;
 
     @GetMapping( "" )
-    public List<Post> list(){
-        return postService.findBoards();
+    public List<Post> Posts(){
+        return postService.findAll();
     }
 
-
     @PostMapping( "" )
-    public Post board( @RequestBody Post post ){
-        return postService.save( post );
+    public void createPost( @RequestBody Post post ){
+        postService.save( post );
+    }
+
+    @GetMapping( "/{id}" )
+    public Post selectPost( @PathVariable Long id ){
+        return postService.findById( id );
+    }
+
+    @PutMapping( "/{id}" )
+    public Post updatePost( @PathVariable Long id ){
+        Post post = postService.findById( id );
+        post.update( post );
+        return post;
     }
 
     @DeleteMapping( "/{id}" )
-    public void delete( @PathVariable Long id ){
-        postService.delete( id );
+    public Post deletePost( @PathVariable Long id ){
+        Post post = postService.findById( id );
+        post.delete( post );
+        return post;
     }
+
 }

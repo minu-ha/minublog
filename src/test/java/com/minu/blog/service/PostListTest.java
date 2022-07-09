@@ -46,7 +46,7 @@ public class PostListTest{
     @Test
     @DisplayName( "등록 내림차순 정렬 테스트" )
     public void descTest(){
-        List<Post> posts = postService.findBoards();
+        List<Post> posts = postService.findAll();
         assertEquals( 1000 , posts.size() );
 
         Post firstPost = posts.get( 0 );

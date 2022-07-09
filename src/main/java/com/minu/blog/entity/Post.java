@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
 public class Post{
 
     @Id
-    @GeneratedValue
+    @Column
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
     @Column
@@ -27,7 +28,7 @@ public class Post{
     @Column
     private String writer;
 
-    @Column
+    @Column( updatable = false )
     @CreationTimestamp
     private LocalDateTime createDate;
 
@@ -35,5 +36,14 @@ public class Post{
     @CreationTimestamp
     private LocalDateTime updateDate;
 
+    public void update( Post post ){
+        this.title = post.title;
+        this.content = post.content;
+        this.writer = post.writer;
+    }
+
+    public void delete( Post post ){
+
+    }
 }
 
