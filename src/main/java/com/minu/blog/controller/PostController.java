@@ -23,24 +23,24 @@ public class PostController{
     }
 
     @PostMapping( "" )
-    public void createPost( @RequestBody Post post ){
+    public void create( @RequestBody Post post ){
         postService.save( post );
     }
 
     @GetMapping( "/{id}" )
-    public Post selectPost( @PathVariable Long id ){
+    public Post select( @PathVariable Long id ){
         return postService.findById( id );
     }
 
     @PutMapping( "/{id}" )
-    public Post updatePost( @PathVariable Long id ){
+    public Post update( @PathVariable Long id ){
         Post post = postService.findById( id );
         post.update( post );
         return post;
     }
 
     @DeleteMapping( "/{id}" )
-    public Post deletePost( @PathVariable Long id ){
+    public Post delete( @PathVariable Long id ){
         Post post = postService.findById( id );
         post.delete( post );
         return post;

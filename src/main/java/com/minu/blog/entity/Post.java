@@ -18,7 +18,7 @@ public class Post{
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    @Column
+    @Column( nullable = false )
     private String title;
 
     @Lob
@@ -35,6 +35,10 @@ public class Post{
     @Column(updatable = false)
     @CreationTimestamp
     private LocalDateTime updateDate;
+
+    @ManyToOne( fetch = FetchType.LAZY )
+    @JoinColumn( name = "USER_ID" )
+    private User user;
 
     public void update( Post post ){
         this.title = post.title;
