@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -39,6 +40,9 @@ public class Post{
     @ManyToOne( fetch = FetchType.LAZY )
     @JoinColumn( name = "USER_ID" )
     private User user;
+
+    @OneToMany(mappedBy = "post" )
+    private List<Comment> comments;
 
     public void update( Post post ){
         this.title = post.title;

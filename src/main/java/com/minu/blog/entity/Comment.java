@@ -19,7 +19,7 @@ public class Comment{
     private Long id;
 
     @Column
-    private String reply;
+    private String content;
 
     @ManyToOne( fetch = FetchType.LAZY )
     @JoinColumn( name = "POST_ID" )
