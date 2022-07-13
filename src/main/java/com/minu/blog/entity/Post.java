@@ -42,7 +42,7 @@ public class Post{
     private User user;
 
     @OneToMany(mappedBy = "post" )
-    private List<Comment> comments;
+    private List<Reply> replies;
 
     public void update( Post post ){
         this.title = post.title;

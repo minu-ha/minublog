@@ -11,7 +11,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-@EnableWebMvc
 public class SwaggerConfig{
 
     @Bean
@@ -27,8 +26,8 @@ public class SwaggerConfig{
 
     private ApiInfo swaggerInfo(){
         return new ApiInfoBuilder()
-                .title( "blog API" )
-                .description( "blog API Docs" )
+                .title( "minublog API" )
+                .description( "Docs" )
                 .build();
     }
 

@@ -21,4 +21,12 @@ public class UserService{
         return userRepository.findAll();
     }
 
+    public void save( User user ){
+        userRepository.save( user );
+    }
+
+    public User login( User user ){
+        return userRepository.findByNameAndPassword( user.getName() , user.getPassword() );
+    }
+
 }
