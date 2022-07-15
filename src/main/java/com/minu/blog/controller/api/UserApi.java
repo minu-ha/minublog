@@ -22,14 +22,4 @@ public class UserApi{
         return new ResponseEntity<>("SUCCESS", HttpStatus.OK );
     }
 
-    @PostMapping( "/user/login" )
-    public ResponseEntity<String> login( @RequestBody User user, HttpSession session ){
-        User principal = userService.login( user );
-
-        if ( principal != null ) {
-            session.setAttribute( "principal",principal );
-        }
-
-        return new ResponseEntity<>( "SUCCESS" , HttpStatus.OK );
-    }
 }

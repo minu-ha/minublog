@@ -25,8 +25,5 @@ public class UserService{
         userRepository.save( user );
     }
 
-    public User login( User user ){
-        return userRepository.findByNameAndPassword( user.getName() , user.getPassword() );
-    }
 
 }

@@ -5,10 +5,9 @@
       xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-    <!-- 고유 스크립트 -->
-    <script th:src = "@{/js/user.js}"></script>
+    <link href = "https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel = "stylesheet">
+    <script src = "https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
-
 <body>
 
 <!-- Page Header-->
@@ -18,8 +17,8 @@
         <div class = "row gx-4 gx-lg-5 justify-content-center">
             <div class = "col-md-10 col-lg-8 col-xl-7">
                 <div class = "page-heading">
-                    <h1>Login</h1>
-                    <span class = "subheading">ID & PASSWORD</span>
+                    <h1>Posting</h1>
+                    <span class = "subheading">title & content</span>
                 </div>
             </div>
         </div>
@@ -34,27 +33,35 @@
                 <p>Want to get in touch? Fill out the form below to send me a message and I will get
                    back to you as soon as possible!</p>
                 <div class = "my-5">
-                    <form id = "contactForm" th:action="@{/login}" method="post">
+                    <form id = "postForm">
                         <div class = "form-floating">
-                            <input class = "form-control" id = "name" placeholder = "ID"
-                                   type = "text" name="name"/>
-                            <label for = "name">ID</label>
-                        </div>
-                        <div class = "form-floating">
-                            <input class = "form-control" id = "password" placeholder = "PWD"
-                                   type = "text" name="password"/>
-                            <label for = "password">Password</label>
+                            <input class = "form-control" id = "name" name = "name"
+                                   placeholder = "ID" type = "text"/>
+                            <label for = "name">Title</label>
                         </div>
                         <br/>
-
-                        <button class = "btn btn-primary " id = "btn-login">login</button>
+                        <div class = "form-floating">
+                            <input class = "form-control" id = "writer" name = "writer"
+                                   placeholder = "writer" type = "text"/>
+                            <label for = "writer">Writer</label>
+                        </div>
+                        <br/>
+                        <div class = "form-group">
+                            <label for = "content">Content</label>
+                            <textarea class = "form-control summernote" id = "content"
+                                      rows = "5"></textarea>
+                        </div>
+                        <br/>
                     </form>
+                    <button class = "btn btn-primary " id = "btn-save">posting</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src = "/js/summernote.js"></script>
+    <script src = "/js/post.js"></script>
+
 </main>
-
-
 </body>
 </html>

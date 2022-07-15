@@ -1,5 +1,6 @@
 package com.minu.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -41,8 +42,11 @@ public class Post{
     @JoinColumn( name = "USER_ID" )
     private User user;
 
-    @OneToMany(mappedBy = "post" )
+    @OneToMany( mappedBy = "post", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE )
+    @JsonIgnoreProperties( { "post" } )
+    @OrderBy( "id desc " )
     private List<Reply> replies;
+
 
     public void update( Post post ){
         this.title = post.title;

@@ -1,4 +1,4 @@
-package com.minu.blog.util;
+package com.minu.blog.util.log;
 
 public class TraceStatus{
 

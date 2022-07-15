@@ -1,4 +1,4 @@
-package com.minu.blog.util;
+package com.minu.blog.util.log;
 
 
 import lombok.extern.slf4j.Slf4j;

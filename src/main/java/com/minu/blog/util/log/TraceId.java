@@ -1,4 +1,4 @@
-package com.minu.blog.util;
+package com.minu.blog.util.log;
 
 import java.util.UUID;
 
