@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <link href = "css/main.css" rel = "stylesheet">
+
+</head>
+<body>
+
+
+<h1 id = "hello"> hello</h1>
+<div class = "alert-box" id = "alert">
+    <p>alert box</p>
+    <button id="close">닫기</button>
+</div>
+
+
+<button onclick = "alert('block')">버튼</button>
+<button onclick = "change('id','block')">버튼1</button>
+<button onclick = "change('pw','block')">버튼2</button>
+
+<script>
+
+    document.getElementById('close').addEventListener('click',function () {
+        document.getElementById('alert').style.display = 'none';
+    });
+
+    function alert(param) {
+        document.getElementById('alert').style.display = param;
+    }
+
+    function change(param1 , param2) {
+        document.getElementById('alert').innerHTML = param1;
+        document.getElementById('alert').style.display = param2;
+    }
+
+
+</script>
+</body>
+</html>
